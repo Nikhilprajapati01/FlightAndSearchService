@@ -1,19 +1,21 @@
 const {CityService} = require("../services/index.js");
 
-const CityService = new CityService();
+const cityService = new CityService();
 
+
+// use post method 
 const create = async (req, res) => {
     try {
-        const City = await CityService.createCity(req.body);
-        return res.status(201).send.json({
-            data: City,
+        const city = await cityService.createCity(req.body);
+        return res.status(201).json({
+            data: city,
             success: true,
             massage:  "successfully created city",
             error:{}
         });
     } catch (error) {
         console.log("Something went wrong at controller layer");
-        return res.status(500).send.json({
+        return res.status(500).json({
             data: {},
             success: false,
             massage:  "failed to create city",
@@ -23,10 +25,11 @@ const create = async (req, res) => {
     }
 };
 
+// use delete method
 const destroy = async (req, res) => {
     try {
-        const response = await CityService.deleteCity(req.params.id);
-        return res.status(200).send.json({
+        const response = await cityService.deleteCity(req.params.id);
+        return res.status(200).json({
             data: response,
             success: true,
             massage:  "successfully delete city",
@@ -34,7 +37,7 @@ const destroy = async (req, res) => {
         });
     } catch (error) {
         console.log("Something went wrong at controller layer");
-        return res.status(500).send.json({
+        return res.status(500).json({
             data: {},
             success: false,
             massage:  "failed to delete city",
@@ -46,8 +49,8 @@ const destroy = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        const response = await CityService.updateCity(req.params.id, req.body);
-        return res.status(200).send.json({
+        const response = await cityService.updateCity(req.params.id, req.body);
+        return res.status(200).json({
             data: response,
             success: true,
             massage:  "successfully update city",
@@ -55,7 +58,7 @@ const update = async (req, res) => {
         });
     } catch (error) {
         console.log("Something went wrong at controller layer");
-        return res.status(500).send.json({
+        return res.status(500).json({
             data: {},
             success: false,
             massage:  "failed to update city",
@@ -68,8 +71,8 @@ const update = async (req, res) => {
 const get = async (req, res) => {
 
     try {
-        const response = await CityService.getCity(req.params.id);
-        return res.status(200).send.json({
+        const response = await cityService.getCity(req.params.id);
+        return res.status(200).json({
             data: response,
             success: true,
             massage:  "successfully delete city",
@@ -77,7 +80,7 @@ const get = async (req, res) => {
         });
     } catch (error) {
         console.log("Something went wrong at controller layer");
-        return res.status(500).send.json({
+        return res.status(500).json({
             data: {},
             success: false,
             massage:  "failed get city",

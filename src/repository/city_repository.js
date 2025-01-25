@@ -1,12 +1,14 @@
+const { Op } = require('sequelize');
+
 const {City} = require('../models/index');
 
+
 class CityRepository {
-
-
-    async createCity({name}) {
+ 
+    async creatCity({name}) {
         try {
-            const City = await City.create({name});
-            return City;
+            const city = await City.create({name});
+            return city;
         } catch (error) {
             throw new Error("Error while creating city");
             
@@ -33,6 +35,16 @@ class CityRepository {
             return City;
         } catch (error) {
             thro("Error while updating city");
+        }
+    }
+
+    async getCity(cityId) {
+        try {
+            const city = await City.findByPk(cityId);
+            return city;
+        } catch (error) {
+            console.log("Something went wrong in the repository layer");
+            throw {error};
         }
     }
 
