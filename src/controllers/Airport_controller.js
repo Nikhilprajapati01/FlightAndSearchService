@@ -6,8 +6,9 @@ const Airportservice = new AirportService();
 const create = async (req, res) => {
     try {
         
-       
-        const city = await Airportservice.Create(req.body, req.param.id);
+        const {cityId} = req.param.id
+      const { name} = req.body;
+              const city = await Airportservice.Create({cityId, name});
         return res.status(201).json({
             data: city,
             success: true,

@@ -4,9 +4,9 @@ const { Op, where } = require("sequelize");
 
 class AirportrRepository  {
 
-  Create =  async ({name, id}) => {
+  Create =  async ({cityid,name}) => {
         try {
-            const airport = await Airport.create({name})
+            const airport = await Airport.bulkCreate([{cityid, name}])
             return airport;
         } catch (error) {
             console.log("something is missing in create ", error);
