@@ -24,6 +24,10 @@
 
 - once you've added your db config as listed above, go to the src folder from your terminal and service `npx sequelize db:create`
 
+- create a model using `npx sequelize-cli db:generate --name "" --attributes ""`
+- migrate file ` using npm sequelize-cli db:migrate`
+
+
 ## db design
 
 - airplane tables
@@ -42,3 +46,7 @@
 
 ## airport -> id, name, addres, City_id , ccreatedat, updatedat
      relation - > City has many airport and Airport belongs to a city ( one to many)
+
+## airplane -> id, modelno , capacity
+
+
