@@ -5,7 +5,7 @@ class AirplaneRepository{
     async getairplane (id){
 
         try {
-            const airplane = await Airplane.Fingbypk(id);
+            const airplane = await Airplane.findByPk(id);
             return airplane;
         } catch (error) {
             console.log("something is missing in create ", error);

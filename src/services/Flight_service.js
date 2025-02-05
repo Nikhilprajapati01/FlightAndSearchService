@@ -1,4 +1,4 @@
-const airplane = require("../models/airplane");
+// const airplane = require("../models/airplane");
 const {FlightRepossitory, AirplaneRepository} = require("../repository/index")
 
 class FlightService {
@@ -9,7 +9,7 @@ class FlightService {
 
     async CreateFlight (data){
         try {
-            const airplane = await this.airplanerepository.getairplane(data.airplaneid)
+            const airplane = await this.airplanerepository.getairplane(data.AirplaneId)
             const flight = await this.flightRepossitory.Createflight(
                 {...data, 
                 TotalSeat:airplane.capacity

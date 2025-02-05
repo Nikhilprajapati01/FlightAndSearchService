@@ -1,10 +1,10 @@
-const {Flights} = require('../models/index');
+const {Flight} = require('../models/index');
 
 class FlightRepossitory{
   
     async Createflight (data){
             try {
-                const flight = await Flights.create(data)
+                const flight = await  Flight.create(data);
                 return flight;
                 
             } catch (error) {

@@ -1,20 +1,20 @@
-const { AirportRepository } = require('../repository/index');
+// const { AirportRepository } = require('../repository/index');
 
-class AirportService{
-    constructor(){
-        this.Airportrepository = new AirportRepository();
-    }
+// class AirportService{
+//     constructor(){
+//         this.Airportrepository = new AirportRepository();
+//     }
 
-    async Create ({cityid, name}){
-           try {
-             const airport = await this.Airportrepository.Create({cityid,name});
-             return airport
-           } catch (error) {
-             console.log(" something wrong in service layer", error);
-             throw error;
+//     async Create (data){
+//            try {
+//              const airport = await this.Airportrepository.Create(data);
+//              return airport
+//            } catch (error) {
+//              console.log(" something wrong in service layer", error);
+//              throw error;
              
-           }
-    }
-}
+//            }
+//     }
+// }
 
-module.exports = AirportService;
+// module.exports = AirportService;
